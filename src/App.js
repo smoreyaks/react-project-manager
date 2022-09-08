@@ -11,7 +11,8 @@ function App() {
   return (
 
     <div className="App">
-      <BrowserRouter className='container'>
+      <BrowserRouter>
+        <div className='container'>
           <Switch>
             <Route exact path="/" >
               <Dashboard />
@@ -29,6 +30,7 @@ function App() {
               <Signup />
             </Route>
           </Switch>
+        </div>
       </BrowserRouter>
     </div>
   );
