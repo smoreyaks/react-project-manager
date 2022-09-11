@@ -7,12 +7,15 @@ import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
 import Project from './pages/Project/Project'
 
+import Navbar from './components/Navbar'
+
 function App() {
   return (
 
     <div className="App">
       <BrowserRouter>
         <div className='container'>
+          <Navbar />
           <Switch>
             <Route exact path="/" >
               <Dashboard />
