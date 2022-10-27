@@ -58,7 +58,7 @@ export default function Signup() {
       
       {/* Email Section */}
       <label>
-        <span>email:</span>
+        <span>Email:</span>
         <input
           required 
           type="email" 
@@ -99,7 +99,7 @@ export default function Signup() {
         {thumbnailError && <div className="error">{thumbnailError}</div>}
       </label>
 
-      {!isPending && <button className="btn">Sign up</button>}
+      {!isPending && <button className="btn">Sign Up</button>}
       {isPending && <button className="btn" disabled>loading</button>}
       {error && <div className="error">{error}</div>}
     </form>
