@@ -1,92 +1,107 @@
-// Hooks
 import { useState } from 'react'
+import { useSignup } from '../../hooks/useSignup'
 
-// Styles
+// styles
 import './Signup.css'
 
-
 export default function Signup() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [displayName, setDsiplayName] = useState('')
-    const [thumbnail, setThumbnail] = useState(null)
-    const [thumbnailError, setThumbnailError] = useState(null)
+  // State 
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [displayName, setDisplayName] = useState('')
+  const [thumbnail, setThumbnail] = useState(null)
+  const [thumbnailError, setThumbnailError] = useState(null)
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(email, password, displayName, thumbnail)
+  // Sign Up - Hook & Initial State
+  const { signup, isPending, error } = useSignup()
+  
+  // Sign Up 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    signup(email, password, displayName, thumbnail)
+  }
+
+  const handleFileChange = (e) => {
+    setThumbnail(null)
+    let selected = e.target.files[0]
+    console.log(selected)
+    
+    // File Select Check - If no file selected return error message
+    if (!selected) {
+      setThumbnailError('Please select a file')
+      return
     }
-
-    const handleFileChange = (e) => {
-        setThumbnail(null)
-        let selected = e.target.files[0]
-        console.log(selected)
-        
-        if (!selected) {
-            setThumbnailError('Please select a file')
-            return
-        }
-        if (!selected.type.includes('image')) {
-            setThumbnailError('Selected file must be an image')
-            return
-        }
-        if (selected.size > 100000) {
-            setThumbnailError('Image file size must be less than 100kb')
-            return
-        }
-
-        setThumbnailError(null)
-        setThumbnail(selected)
-        console.log('Thumbnail Updated')
+    
+    // File Type Check - If file not an image return error message
+    if (!selected.type.includes('image')) {
+      setThumbnailError('Selected file must be an image')
+      return
     }
+    
+    // File Size Check - If file bigger than 100kb return error
+    if (selected.size > 100000) {
+      setThumbnailError('Image file size must be less than 100kb')
+      return
+    }
+    
+    // Reset error message
+    setThumbnailError(null)
+    
+    // Set Thumbnail as Selected Image
+    setThumbnail(selected)
+    console.log('thumbnail updated')
+  }
 
+  return (
+    <form onSubmit={handleSubmit} className="auth-form">
+      <h2>Sign Up</h2>
+      
+      {/* Email Section */}
+      <label>
+        <span>email:</span>
+        <input
+          required 
+          type="email" 
+          onChange={(e) => setEmail(e.target.value)} 
+          value={email}
+          />
+      </label>
+      
+      {/* Password Section */}
+      <label>
+        <span>Password:</span>
+        <input
+          required
+          type="password" 
+          onChange={(e) => setPassword(e.target.value)} 
+          value={password}
+        />
+      </label>
 
-    return (
-        <div className='auth-form'>
-            <form>
-                <h2>Sign Up</h2>
-                <label>
-                    <span>Email:</span>
-                    <input 
-                        type="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                        required
-                    />
-                </label>
+      {/* Display Name Section */}
+      <label>
+        <span>Display Name:</span>
+        <input
+          required
+          type="text" 
+          onChange={(e) => setDisplayName(e.target.value)} 
+          value={displayName}
+        />
+      </label>
+      
+      <label>
+        <span>Profile Image:</span>
+        <input 
+          required
+          type="file"
+          onChange={handleFileChange}
+        />
+        {thumbnailError && <div className="error">{thumbnailError}</div>}
+      </label>
 
-                <label>
-                    <span>Password:</span>
-                    <input 
-                        type="text"
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                        required
-                        />
-                </label>
-                <label>
-                    <span>Display Name:</span>
-                    <input 
-                        type="text"
-                        onChange={(e) => setDsiplayName(e.target.value)}
-                        value={displayName}
-                        required
-                    />
-                </label>
-                <label>
-                    <span>Profile Thumbnail:</span>
-                    <input 
-                        type="file"
-                        // onChange={(e) => setThumbnail(e.target.value)}
-                        onChange={handleFileChange}
-                        // value={thumbnail}
-                        required
-                    />
-                    { thumbnailError && <div className="error">{ thumbnailError }</div> }
-                </label>
-                <button className='btn'>Sign Up</button>
-                
-            </form>
-        </div>
-    )
+      {!isPending && <button className="btn">Sign up</button>}
+      {isPending && <button className="btn" disabled>loading</button>}
+      {error && <div className="error">{error}</div>}
+    </form>
+  )
 }
