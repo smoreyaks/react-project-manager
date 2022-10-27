@@ -13,7 +13,7 @@ export default function Signup() {
   const [thumbnailError, setThumbnailError] = useState(null)
 
   // Sign Up - Hook & Initial State
-  const { signup, isPending, error } = useSignup()
+  const { signup, error, isPending } = useSignup()
   
   // Sign Up 
   const handleSubmit = (e) => {
@@ -100,7 +100,7 @@ export default function Signup() {
       </label>
 
       {!isPending && <button className="btn">Sign Up</button>}
-      {isPending && <button className="btn" disabled>loading</button>}
+      {isPending && <button className="btn" disabled>Loading</button>}
       {error && <div className="error">{error}</div>}
     </form>
   )
