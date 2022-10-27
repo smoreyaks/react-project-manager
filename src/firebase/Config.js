@@ -13,10 +13,10 @@ const firebaseConfig = {
 };
 
 
-// init firebase
+// Initialise Firebase
 firebase.initializeApp(firebaseConfig)
 
-// init services
+// Initialise Services
 const projectFirestore = firebase.firestore()
 const projectAuth = firebase.auth()
 
