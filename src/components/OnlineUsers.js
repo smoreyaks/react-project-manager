@@ -20,6 +20,7 @@ export default function OnlineUsers() {
             { error && <div className='error'>{ error }</div> }
             { documents && documents.map(user => (
                 <div key={user.id} className="user-list-item">
+                    { user.online && <span className='online-user'></span> }
                     <span>{user.displayName}</span>
                     <Avatar src={user.photoURL} />
                 </div>
@@ -28,3 +29,10 @@ export default function OnlineUsers() {
     )
 }
 
+
+/*
+
+    Logging into another user Incognito via Google Chrome 106.0.5249.119 64 bit
+    deletes document displayName and photoURL data in Firebase. The online property isn't deleted.
+
+*/
