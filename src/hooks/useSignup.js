@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { projectAuth, projectStorage, projectFirestore } from '../firebase/Config'
+import { projectAuth, projectStorage, projectFirestore } from '../firebase/config'
 import { useAuthContext } from './useAuthContext'
 import { getDownloadURL } from 'firebase/storage'
 
