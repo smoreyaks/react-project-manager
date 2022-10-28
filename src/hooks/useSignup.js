@@ -36,7 +36,7 @@ export const useSignup = () => {
         online: true,
         displayName,
         photoURL: imgUrl,
-      } )
+      })
 
       // Dispatch Login Action
       dispatch({ type: 'LOGIN', payload: res.user })

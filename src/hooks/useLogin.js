@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { projectAuth } from '../firebase/config'
+import { projectAuth, projectFirestore } from '../firebase/config'
 import { useAuthContext } from './useAuthContext'
 
 export const useLogin = () => {
@@ -23,7 +23,13 @@ export const useLogin = () => {
         setIsPending(false)
         setError(null)
       }
+
+      // Update Online Status
+      await projectFirestore.collection('users').doc(res.user.uid).set({
+        online: true,
+      })
     } 
+
     catch(err) {
       if (!isCancelled) {
         setError(err.message)
