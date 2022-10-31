@@ -6,12 +6,14 @@ import { useState } from 'react'
 import { useCollection } from '../../hooks/useCollection'
 import { useEffect } from 'react'
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { useFirestore } from '../../hooks/useFirestore'
 
 // Styles
 import './Create.css'
 
 // Components - React Select
 import Select from 'react-select'
+import { useHistory } from 'react-router-dom'
 
 const catagories = [
     { value: 'development', label: 'Development' },
@@ -21,6 +23,9 @@ const catagories = [
 ]
 
 export default function Create() {
+    
+    const history = useHistory()
+    const { addDocument, response } = useFirestore('projects')
     const { documents } = useCollection('users')
     const [users, setUsers] = useState([])
     const { user } = useAuthContext()
@@ -32,7 +37,6 @@ export default function Create() {
     const [category, setCategory] = useState('')
     const [assignedUsers, setAssignedUsers] = useState([])
     const [formError, setFormError] = useState(null)
-
 
     useEffect(() => {
         if(documents) {
@@ -46,7 +50,7 @@ export default function Create() {
         }
     }, [documents])
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setFormError(null)
         if(!category.value) {
@@ -82,7 +86,10 @@ export default function Create() {
             assignedUsersList
         }
 
-        console.log(project);
+        await addDocument(project)
+        if (!response.error)  {
+            history.push('/')
+        }
     }
     
     return (
