@@ -29,10 +29,11 @@ export const useCollection = (collection, _query, _orderBy) => {
       // update state
       setDocuments(results)
       setError(null)
-    }, error => {
+      }, error => {
       console.log(error)
       setError('could not fetch the data')
-    })
+      }
+    )
 
     // unsubscribe on unmount
     return () => unsubscribe()
