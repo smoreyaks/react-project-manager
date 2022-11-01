@@ -25,8 +25,9 @@ export const useLogin = () => {
       }
 
       // Update Online Status
-      await projectFirestore.collection('users').doc(res.user.uid).set({
-        online: true,
+      const documentRef = projectFirestore.collection('users').doc(res.user.uid)
+      await documentRef.update({ 
+        online: true 
       })
     } 
 
