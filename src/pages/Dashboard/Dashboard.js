@@ -14,14 +14,14 @@ import userEvent from '@testing-library/user-event'
 export default function Dashboard() {
     const { user } = useAuthContext()
     const { documents, error } = useCollection('projects')
-    const [currentFilter, setCurrentFilter] = useState('all')
+    const [filter, setFilter] = useState('all')
 
     const changeFilter = (newFilter) => {
-        setCurrentFilter(newFilter)
+        setFilter(newFilter)
     }
 
-    const projects = documents ? documents.filter((document) => {
-        switch (currentFilter) {
+    const projects = documents ? documents.filter(document => {
+        switch (filter) {
             case "All": 
                 return true;
             
@@ -35,14 +35,11 @@ export default function Dashboard() {
                 return assignedToMe;
 
             case "Development": 
-
             case "Design": 
-
             case "Sales": 
-
             case "Marketing": 
-                console.log(document.category, currentFilter)
-                return document.category === currentFilter
+                console.log(document.category, filter)
+                return document.category === filter
             
             default :
                 return true
@@ -55,7 +52,7 @@ export default function Dashboard() {
             <h2 className="page-title">Dashboard</h2>
             { error && <p className="error">{error}</p> }
             { documents && (
-                <ProjectFilter currentFilter={currentFilter} changeFilter={changeFilter} />
+                <ProjectFilter currentFilter={filter} changeFilter={changeFilter} />
             )}
             { projects && <ProjectList projects={projects} /> }
         </div>
