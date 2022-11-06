@@ -16,10 +16,10 @@ import Select from 'react-select'
 import { useHistory } from 'react-router-dom'
 
 const catagories = [
-    { value: 'development', label: 'Development' },
-    { value: 'design', label: 'Design' },
-    { value: 'sales', label: 'Sales' },
-    { value: 'marketing', label: 'Marketing' },
+    { value: 'Development', label: 'Development' },
+    { value: 'Design', label: 'Design' },
+    { value: 'Sales', label: 'Sales' },
+    { value: 'Marketing', label: 'Marketing' },
 ]
 
 export default function Create() {

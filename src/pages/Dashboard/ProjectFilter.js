@@ -12,7 +12,7 @@ const filterList = [
                         'Design', 
                         'Marketing', 
                         'Sales'
-                    ]
+]
 
 export default function ProjectFilter({ changeFilter }) {
     const [currentFilter, setCurrentFilter] = useState('all')
