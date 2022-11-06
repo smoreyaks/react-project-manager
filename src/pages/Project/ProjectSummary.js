@@ -5,6 +5,7 @@ import React from 'react'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useHistory } from 'react-router-dom'
 import { useFirestore } from '../../hooks/useFirestore'
+// import { useCollection } from '../../hooks/useCollection'
 
 // Components
 import Avatar from '../../components/Avatar'
@@ -13,6 +14,7 @@ import Avatar from '../../components/Avatar'
 export default function ProjectSummary({ project }) {
     const { deleteDocument } = useFirestore('projects')
     const { user } = useAuthContext()
+    // const { documents, error } = useCollection('projects')
     const history = useHistory()
     
     const handleClick = (e) => {
@@ -27,6 +29,12 @@ export default function ProjectSummary({ project }) {
                 <p className="due-date">
                     Project due by { project.dueDate.toDate().toDateString() }
                 </p>
+                <div className='created-by'>
+                    <p>Created By</p>
+                    <div>
+                        <Avatar src={ project.createdBy.photoURL }/>
+                    </div>
+                </div>
                 <p className="details">{ project.details }</p>
                 <h4>Assigned To:</h4>
                 <div className="assigned-users">
