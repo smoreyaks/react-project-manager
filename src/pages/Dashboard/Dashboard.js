@@ -27,13 +27,20 @@ export default function Dashboard() {
                 return true;
             case 'Assigned': 
                 let assignedToMe = false
+                console.log(document.assignedUsersList)
                 document.assignedUsersList.forEach(u => {
-                    if(u.id === user.uid) {
+                    if (u.id === user.uid) {
                         assignedToMe = true
                     }
                 })
                 return assignedToMe
-            case 'Created By':
+            case 'createdBy':
+                let createdByMe = false
+                console.log(document.createdBy.id)
+                if (document.createdBy.id === user.uid) {
+                    createdByMe = true
+                }
+                return createdByMe
             case 'Development':
             case 'Design':
             case 'Sales':
