@@ -22,14 +22,20 @@ export default function ProjectList({ projects }) {
                     key={ project.id }
                 >
                     <h4>{project.name}</h4>
-                    <p>Due by {project.dueDate.toDate().toDateString()}</p>
+                    <div className="due-date">
+                        <p className='date-string'>Due by {project.dueDate.toDate().toDateString()}</p>
+                        <div className='created-by'>
+                            <p>Created by</p> 
+                            <Avatar className='avatar' src={project.createdBy.photoURL} />
+                        </div>
+                    </div>
                     <div className="assigned-to">
                         <ul>
                             {project.assignedUsersList.map(user => (
                                 <li key={user.photoURL}>
                                     <Avatar src={user.photoURL}/>
                                 </li>
-                                ))}
+                            ))}
                         </ul>
                     </div>
                 </Link>

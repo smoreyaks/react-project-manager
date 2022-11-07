@@ -54,6 +54,23 @@
 }
 
 
+/* Project List */
+.project-list .due-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-list .due-date .created-by {
+    display: flex;
+    align-items: center;
+}
+
+.project-list .due-date .created-by .avatar {
+    margin-left: 0.5em;
+    
+}
+
 /* Project Comments */ 
 .project-comments textarea {
     min-height: 40px;
