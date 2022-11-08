@@ -1,8 +1,10 @@
-1. Add A Show Password Icon in Login & Sign Up Pages
-2. Reduce Show User List text size
-3. Impose character limit for display names
-4. Choose Colour Theme
-5. Change Icon for Site
-6. Add in whom Project Created by for each project item
-7. Change 'Owned' to 'Assigned' on Project Filter
-8. Create 'Created By' tab on Project Filter
+    Add A Show Password Icon in Login & Sign Up Pages
+    Reduce Show User List text size
+    Impose character limit for display names
+    Choose Colour Theme
+    Change Icon for Site
+✔️  Add in whom Project Created By text for each project item
+✔️  Add in whom Project Created PFP by for each project item
+✔️  Change 'Owned' to 'Assigned' on Project Filter 
+✔️  Create 'Created By' tab on Project Filter
+  Apply Space Between to Show User List 

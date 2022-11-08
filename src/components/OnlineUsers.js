@@ -20,9 +20,12 @@ export default function OnlineUsers() {
             { error && <div className='error'>{ error }</div> }
             { documents && documents.map(user => (
                 <div key={user.id} className="user-list-item">
-                    { user.online && <span className='online-user'></span> }
-                    <span>{user.displayName}</span>
-                    <Avatar src={user.photoURL} />
+                    { user.online && <div className='online-user'></div> }
+                    { !user.online && <div className='offline-user'></div> }
+                    <div className="name-avatar">
+                        <div className='user-display-name'>{user.displayName}</div>
+                        <Avatar src={user.photoURL} />
+                    </div>
                 </div>
             ))}
         </div>
