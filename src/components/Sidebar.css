@@ -9,7 +9,7 @@
 }
 
 .sidebar-content {
-    position: fixed;
+    position: relative;
     width: inherit;
 }
 
