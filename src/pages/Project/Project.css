@@ -53,9 +53,9 @@
     align-items: center;
 }
 
-/* .project-summary .created-by .avatar {
+.project-summary .created-by .avatar {
     margin-left: 10px;
-} */
+}
 
 /* Project List */
 .project-list .due-date {

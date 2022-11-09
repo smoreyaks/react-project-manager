@@ -31,9 +31,7 @@ export default function ProjectSummary({ project }) {
                 </p>
                 <div className='created-by'>
                     <p>Created By</p>
-                    <div>
-                        <Avatar src={ project.createdBy.photoURL }/>
-                    </div>
+                    <Avatar src={ project.createdBy.photoURL }/>
                 </div>
                 <p className="details">{ project.details }</p>
                 <h4>Assigned To:</h4>
