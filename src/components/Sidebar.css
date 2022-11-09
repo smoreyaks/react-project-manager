@@ -5,12 +5,14 @@
     min-height: 100vh;
     box-sizing: border-box;
     position: relative;
+    display: flex;
     color: #fff;
 }
 
 .sidebar-content {
     position: relative;
     width: inherit;
+
 }
 
 .sidebar .user {
