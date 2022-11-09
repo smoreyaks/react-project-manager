@@ -1,9 +1,9 @@
 /* Project Details */
 .project-details {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
+    /* display: flex; */
+    /* grid-template-columns: 3fr 2fr; */
     align-items: start;
-    grid-gap: 60px;
+    /* grid-gap: 60px; */
     
 }
 
@@ -53,6 +53,9 @@
     align-items: center;
 }
 
+/* .project-summary .created-by .avatar {
+    margin-left: 10px;
+} */
 
 /* Project List */
 .project-list .due-date {
@@ -73,11 +76,13 @@
 
 /* Project Comments */ 
 .project-comments textarea {
-    min-height: 40px;
-    font-size: 1.5em;
+    min-height: 60px;
+    min-width: 405px;
+    font-size: 0.9em;
+    font-family: Poppins, sans-serif;
 }
 
-/* Comment List */
+
 .project-comments h4 {
     color: var(--heading-color);
 }
@@ -87,7 +92,7 @@
     border-radius: 4px;
     border: 1px solid #f2f2f2;
     margin-top: 20px;
-    box-shadow: 3px 3px 5px rgba(0,0,0,0.05);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
     background: #fff;
 }
 
@@ -112,4 +117,13 @@
 .comment-content {
     color: var(--text-color);
     font-size: 0.9em;
+}
+
+/* Add Comment Panel Button */
+.project-comments .add-comment label {
+    margin-bottom: 0;
+}
+
+.project-comments .add-comment .panel-btn {
+    min-width: 405px;
 }
