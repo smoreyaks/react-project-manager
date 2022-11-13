@@ -21,6 +21,10 @@ export default function Sidebar() {
                     <p>Hey {user.displayName}</p>
                 </div>
                 <nav className='links'>
+                    <NavLink to="/profile">
+                        <img src={AddIcon} alt="Add Project Icon" />
+                        <span>Profile</span>
+                    </NavLink>
                     <NavLink exact to="/">
                         <img src={DashboardIcon} alt="Dashboard Icon" />
                         <span>Dashboard</span>
