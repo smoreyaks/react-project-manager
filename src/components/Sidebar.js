@@ -33,6 +33,11 @@ export default function Sidebar() {
                         <img src={AddIcon} alt="Add Project Icon" />
                         <span>New Project</span>
                     </NavLink>
+                    <NavLink to="/calendar">
+                        <img src={AddIcon} alt="Add Project Icon" />
+                        <span>Calendar</span>
+                    </NavLink>
+                    
                 </nav>
             </div>
         </div>
