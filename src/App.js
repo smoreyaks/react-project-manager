@@ -13,6 +13,7 @@ import Create from './pages/Create/Create'
 import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
 import Project from './pages/Project/Project'
+import Profile from './pages/Profile/Profile'
 
 // Components
 import Navbar from './components/Navbar'
@@ -39,6 +40,10 @@ function App() {
               <Route path="/create">
                 { !user && <Redirect to="/login" /> }
                 { user && <Create /> }
+              </Route>              
+              <Route path="/profile/:id">
+                { !user && <Redirect to="/login" /> }
+                { user && <Profile /> }
               </Route>
               <Route path="/projects/:id">
                 { !user && <Redirect to="/login" /> }
