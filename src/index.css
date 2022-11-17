@@ -77,3 +77,23 @@ textarea {
   padding: 8px;
   margin: 10px 0;
 }
+
+/* User Name Tooltip */
+.user-tooltip {
+  width: auto;
+  position: absolute;
+  left: 16em;
+  padding: 0.5em;
+  margin: 0.5em;
+  min-width: max-content;
+  border-radius: 0.375em;
+  color: rgba(255 255 255 1);
+  background-color: rgba(32 34 37 1);
+  font-size: 0.75em;
+  font-weight: bold;
+  line-height: 1em;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transform-origin: left;
+}
