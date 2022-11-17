@@ -2,6 +2,9 @@
 import './Sidebar.css'
 import DashboardIcon from '../assets/dashboard_icon.svg'
 import AddIcon from '../assets/add_icon.svg'
+import ProfileIcon from '../assets/add_icon.svg'
+import OverviewIcon from '../assets/add_icon.svg'
+
 
 import { NavLink } from 'react-router-dom'
 import Avatar from './Avatar'
@@ -22,7 +25,7 @@ export default function Sidebar() {
                 </div>
                 <nav className='links'>
                     <NavLink to="/profile">
-                        <img src={AddIcon} alt="Add Project Icon" />
+                        <img src={ProfileIcon} alt="Add Project Icon" />
                         <span>Profile</span>
                     </NavLink>
                     <NavLink exact to="/">
@@ -33,9 +36,9 @@ export default function Sidebar() {
                         <img src={AddIcon} alt="Add Project Icon" />
                         <span>New Project</span>
                     </NavLink>
-                    <NavLink to="/calendar">
-                        <img src={AddIcon} alt="Add Project Icon" />
-                        <span>Calendar</span>
+                    <NavLink to="/overview">
+                        <img src={OverviewIcon} alt="Add Project Icon" />
+                        <span>Team Overview</span>
                     </NavLink>
                     
                 </nav>
